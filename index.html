@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GSX-R Classifier</title>
+    <title>GSX Classifier</title>
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <style>
         /* 画面全体を縦に並べる設定 */
@@ -123,8 +123,8 @@
         // 初期化
         async function init() {
             try {
-                const resp = await fetch('./Labels.json');
-                if (!resp.ok) throw new Error("Labels.jsonが見つかりません");
+                const resp = await fetch('./labels.json');
+                if (!resp.ok) throw new Error("labels.jsonが見つかりません");
                 labels = await resp.json();
                 
                 session = await ort.InferenceSession.create('./gsxr_model.onnx', {
